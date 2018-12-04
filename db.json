@@ -4,6 +4,18 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "fisrt": "nick",
+      "last": "chu",
+      "company": "Beihang University",
+      "id": 2
+    },
+    {
+      "fisrt": "nick",
+      "last": "chu",
+      "company": "Beihang University",
+      "id": 3
     }
   ],
   "comments": [

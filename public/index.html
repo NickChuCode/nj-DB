@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        .btn {
+            border: 1px solid black;
+            display: inline-block;
+            width: 100px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
     <title>nj-DB</title>
 </head>
 <body>
     <h1>nj-DB testing</h1>
+    <div id="message"></div>
+    <div id="load1" class="btn">load 1</div>
+    <script>
+        var load1 = document.querySelector("#load1")
+        var message = document.querySelector('#message')
+        load1.addEventListener('click', function () {
+            makeRequest('http://localhost:3000/posts', 'GET', {})
+        })
+
+        function makeRequest(url, requestType, data) {
+            var xhr = new XMLHttpRequest()
+
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4) {
+                    message.innerHTML = xhr.response
+                    console.log(JSON.parse(xhr.response))
+                }
+            }
+
+            xhr.open(requestType, url, true)
+            xhr.send()
+        }
+    </script>
 </body>
 </html>
