@@ -92,7 +92,25 @@
         })
 
         document.querySelector('#search').addEventListener('click', function () {
+            output.innerHTML = ''
+            var search = document.querySelector('input[name="search"]').value
+            var xhr = new XMLHttpRequest()
 
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    var res = JSON.parse(xhr.response)
+                    console.log(res)
+                    // for (var key in res[0]) {
+                    //     output.innerHTML += '<b>' + key + '</b>:' + res[0][key] + '<br>'
+                    // }
+                    for (var i = 0; i < res.length; i++) {
+                        output.innerHTML += '<b>' + res[i].first + ' ' + res[i].last + '</b>: ' + res[i].id + '<br>'
+                    }
+                }
+            }
+
+            xhr.open('GET', 'http://localhost:3000/posts?q=' + search, true)
+            xhr.send()
         })
 
         document.querySelector('#addComment').addEventListener('click', function () {
