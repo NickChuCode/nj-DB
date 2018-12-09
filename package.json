@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "json-server db.json",
+    "cli:new": "node ./cli/index.js new",
+    "cli:list": "node ./cli/index.js list",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +24,8 @@
   },
   "homepage": "https://github.com/NickChuCode/nj-DB#readme",
   "dependencies": {
+    "commander": "^2.19.0",
+    "inquirer": "^6.2.1",
     "json-server": "^0.14.0"
   }
 }
